@@ -3,18 +3,23 @@ using System.Collections.Generic;
 
 public class LexAnalyzer
 {
+    /// <summary>
+    /// Название переменной
+    /// </summary>
     string idName = null;
 
-    
+
     public string IdName
     {
         get { return idName; }
         set { idName = value; }
     }
+    /// <summary>
+    /// Ответ переменной
+    /// </summary>
+    float? answer = null;
 
-    int? answer = null;
-
-    public int? Answer
+    public float? Answer
     {
         get { return answer; }
         set { answer = value; }
@@ -23,7 +28,11 @@ public class LexAnalyzer
 
     char[] charArr;//the entirety of the user input
     char nextChar;
+
     string lexeme;//temporary storage for single lexemes
+    /// <summary>
+    /// Все слова которые разделены по идентификаторам - одному слову один идентификатор (1-1)
+    /// </summary>
     List<string> lexemes = new List<string>();//storage for all lexemes
 
     public List<string> Lexemes
@@ -31,40 +40,39 @@ public class LexAnalyzer
         get { return lexemes; }
         set { lexemes = value; }
     }
+    /// <summary>
+    /// Идентификаторы - одному идентификатору одно слово(1-1)
+    /// </summary>
     public List<string> tokens = new List<string>();//public list to pass into the parser
 
     //a constructor to pass in the supplied equation and begin analysis
     public LexAnalyzer(string eq)
     {
         charArr = eq.ToCharArray();
-       // Console.WriteLine("Lexical Analysis:");
-       // Console.WriteLine();
-       // Console.WriteLine("Lexeme | Token");
-       // Console.WriteLine("---------------");
+
         StartAnalysis();
-      //  for (int i = 0; i < lexemes.Count; i++)
-     //   {
-         //   Console.WriteLine("{0,-7}| {1,-7}", lexemes[i], tokens[i]);
-     //   }
-      //  Console.WriteLine();
+
         int a;
         if (!int.TryParse(lexemes[0], out a)) idName = lexemes[0];
-        
-       
+        else throw new Exception("ID : It can not be integer");
+
+
     }
 
     //begin analysis of string
     void StartAnalysis()
     {
+        //Специальный флаг для проверки в заданном числе точки,( 123.123.123, чтобы он это число распознал как неверно введенное)
+        bool flagDot = false;
         int position = 0;
         nextChar = charArr[position];
         //scan through the entire input string
-        while (nextChar != '$')
+        while (nextChar != ';')
         {
             //ID subroutine
-            if (Char.IsLetter(nextChar))
+            if (Char.IsLetter(nextChar) || nextChar == '.')
             {
-                while (Char.IsLetterOrDigit(nextChar))
+                while (Char.IsLetterOrDigit(nextChar) || nextChar == '.')
                 {
                     lexeme = lexeme + nextChar.ToString();
                     position++;
@@ -73,15 +81,23 @@ public class LexAnalyzer
                 LexLookup(lexeme);
             }
             //Number subroutine
-            else if (Char.IsDigit(nextChar))
+            else if (Char.IsDigit(nextChar) || nextChar == '.')
             {
-                while (Char.IsDigit(nextChar))
+                while (Char.IsDigit(nextChar) || nextChar == '.')
                 {
+
+                    if (nextChar == '.')
+                    {
+                        if (flagDot) throw new Exception("Вы произвели не правильный ввод числа!");
+                        else flagDot = true; //как появилась точка в числе то ставим флаг  
+                    }
                     lexeme = lexeme + nextChar.ToString();
                     position++;
                     nextChar = charArr[position];
                 }
+                flagDot = false;
                 LexLookup(lexeme);
+
             }
             //Whitespace subroutine
             else if (Char.IsWhiteSpace(nextChar))
@@ -104,9 +120,6 @@ public class LexAnalyzer
         lexemes.Add(lex);
         switch (lex)
         {
-            case "/":
-                tokens.Add("/");
-                break;
             case "+":
                 tokens.Add("+");
                 break;
@@ -114,15 +127,21 @@ public class LexAnalyzer
                 tokens.Add("-");
                 break;
             case "*":
-                tokens.Add("/");
+                tokens.Add("MUL_OP");
                 break;
             case "=":
                 tokens.Add("=");
-                break;    
+                break;
             default:
-                tokens.Add("IDENT");
+                if (goAwayChekNumber(lex)) tokens.Add("NUMBER");
+                else tokens.Add("IDENT");
                 break;
         }
         lexeme = "";
+    }
+    bool goAwayChekNumber(string lex)
+    {
+        foreach (char currentChar in lex) if (!Char.IsNumber(currentChar)) if(currentChar != '.') return false;
+        return true;
     }
 }
