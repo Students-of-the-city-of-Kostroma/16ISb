@@ -11,3 +11,8 @@ C:\Users\student\Desktop\mathcalc\ConsoleApplication1\obj\x86\Debug\ConsoleAppli
 C:\Users\student\Desktop\mathcalc\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 C:\Users\student\Desktop\mathcalc\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
 C:\Users\student\Desktop\mathcalc\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\mathcalc1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\student\Desktop\mathcalc1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\student\Desktop\mathcalc1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\student\Desktop\mathcalc1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\student\Desktop\mathcalc1\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache

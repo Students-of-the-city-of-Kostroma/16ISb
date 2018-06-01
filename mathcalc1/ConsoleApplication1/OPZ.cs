@@ -22,7 +22,7 @@ namespace ConsoleApplication1
                 string s = string.Empty + input[pos];
                 if (!standart_operators.Contains(input[pos].ToString()))
                 {
-                    if (Char.IsDigit(input[pos]))
+                    if (Char.IsDigit(input[pos]) || input[pos]=='.')
                         for (int i = pos + 1; i < input.Length &&
                             (Char.IsDigit(input[i]) || input[i] == ',' || input[i] == '.'); i++)
                             s += input[i];
@@ -95,7 +95,7 @@ namespace ConsoleApplication1
 
             return outputSeparated.ToArray();
         }
-        public decimal? result(string input)
+        public double? result(string input)
         {
             Stack<string> stack = new Stack<string>();
             Queue<string> queue = new Queue<string>(ConvertToPostfixNotation(input));
@@ -109,7 +109,7 @@ namespace ConsoleApplication1
                 }
                 else
                 {
-                    decimal summ = 0;
+                    double summ = 0;
                     try
                     {
 
@@ -118,37 +118,37 @@ namespace ConsoleApplication1
 
                             case "+":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
                                     summ = a + b;
                                     break;
                                 }
                             case "-":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
                                     summ = b - a;
                                     break;
                                 }
                             case "*":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
                                     summ = b * a;
                                     break;
                                 }
                             case "/":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
                                     summ = b / a;
                                     break;
                                 }
                             case "^":
                                 {
-                                    decimal a = Convert.ToDecimal(stack.Pop());
-                                    decimal b = Convert.ToDecimal(stack.Pop());
-                                    summ = Convert.ToDecimal(Math.Pow(Convert.ToDouble(b), Convert.ToDouble(a)));
+                                    double a = Convert.ToDouble(stack.Pop());
+                                    double b = Convert.ToDouble(stack.Pop());
+                                    summ = Convert.ToDouble(Math.Pow(Convert.ToDouble(b), Convert.ToDouble(a)));
                                     break;
                                 }
                         }
@@ -166,7 +166,7 @@ namespace ConsoleApplication1
                 }
 
             }
-            return Convert.ToDecimal(stack.Pop());
+            return Convert.ToDouble(stack.Pop());
         }
     }
 
