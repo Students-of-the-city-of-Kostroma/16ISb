@@ -1,0 +1,13 @@
+C:\Users\Danil\Desktop\MathCad1\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\Danil\Desktop\MathCad1\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Danil\Desktop\MathCad1\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Danil\Desktop\MathCad1\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\Danil\Desktop\mathcalc\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\Danil\Desktop\mathcalc\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\Danil\Desktop\mathcalc\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Danil\Desktop\mathcalc\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\student\Desktop\mathcalc\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\student\Desktop\mathcalc\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
+C:\Users\student\Desktop\mathcalc\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\student\Desktop\mathcalc\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\student\Desktop\mathcalc\ConsoleApplication1\obj\x86\Debug\ResolveAssemblyReference.cache
