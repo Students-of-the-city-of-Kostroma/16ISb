@@ -73,9 +73,8 @@ namespace ConsoleApplication1
 
 
                     ChekingForBrakets(Expession);
-                    //Проверяем это типичное выражение или с использованием переменныx?
-                    bool OnlyMathExpression = true;
-                    //видим что первым стоит идентификатор (значит уже не простое мат. выражение)
+                    
+                 
                     Expession = "";
                     if (MakeTokens.Tokens.Count == 1 || MakeTokens.Tokens.Count == 2)
                     {
