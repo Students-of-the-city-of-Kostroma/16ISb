@@ -126,7 +126,6 @@ namespace ConsoleApplication1
                             }
                             if (!HasIT) ListOfIdentify.Add(new Identify(MakeTokens.Lexemes[0]));
                             //собираем выражение подставляя вместо переменныx ux значения
-
                             for (int i = 2; i < MakeTokens.Tokens.Count; i++)
                             {
                                 if (MakeTokens.Tokens[i] == "IDENT")
@@ -188,48 +187,7 @@ namespace ConsoleApplication1
                             Expession = (SolutionOfMathExpression.result(Expession)).ToString();
                             if (Expession == null) throw new Exception("Incorrect expression");
                             Console.WriteLine("Answer is : " + Expession);
-                            //MakeTokens = new LexAnalyzer(Expession);
-                            //for (int i = 0; i < MakeTokens.Tokens.Count; i++)
-                            //{
-                            //    if (OnlyMathExpression)
-                            //    {
-                            //        if (i % 2 == 0)
-                            //        {
-                            //            if (MakeTokens.Tokens[i] != "NUMBER")
-                            //            {
-                            //                OnlyMathExpression = false;
-                            //                i = 0;
-                            //            }
-                            //        }
-                            //        else
-                            //        {
-                            //            if (MakeTokens.Tokens[i] == "+" || MakeTokens.Tokens[i] == "*" ||
-                            //                MakeTokens.Tokens[i] == "/" || MakeTokens.Tokens[i] == "-") continue;
-                            //            else
-                            //            {
-                            //                OnlyMathExpression = false;
-                            //                i = 0;
-                            //            }
-                            //        }
-                            //    }
-                            //    else throw new Exception("We expected math expression");
-                            //}
-                        }
-
-                        // if (OnlyMathExpression) Console.WriteLine(SolutionOfMathExpression.result(Expession));
-                        // else throw new Exception("You entered incorrect symbol");
-                    }
-                    //ListOfIdentify.Add(new LexAnalyzer(currentExpression));
-
-                    //Console.WriteLine(SolutionOfMathExpression.result(currentExpression));
-                    //  //  currentExpression += " ";
-                    //  //countOfExpressions++;
-                    //  //ListOfIdentify.Add(new Identify(currentExpression));
-                    //  string Exprs = currentExpression;
-                    //  currentExpression = currentExpression + "$";
-                    //
-                    //  ListOfIdentify.Add(new LexAnalyzer(currentExpression));//LexAnalyzer prints its output upon construction
-
+                   }
                 }
                 catch (Exception ex)
                 {
@@ -239,7 +197,6 @@ namespace ConsoleApplication1
                 {
                     Console.WriteLine("...");
                 }
-
             }
         }
         //Проверяем скобки в выражении
@@ -248,8 +205,6 @@ namespace ConsoleApplication1
             Stack<char> Brakets = new Stack<char>();
             foreach (char Current in Exprs)
             {
-                //если есть вxодящая то заносим в стэк если же есть закрывающаяся 
-                //првоерим в стэке есть что то если нету то ИСКЛЮЧЕНИЕ (не может быть такой ситуации)
                 if (Current == '(') Brakets.Push('(');
                 if (Current == ')')
                 {
