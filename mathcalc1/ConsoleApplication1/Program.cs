@@ -73,9 +73,10 @@ namespace ConsoleApplication1
 
 
                     ChekingForBrakets(Expession);
-                    
-                 
+                    //Проверяем это типичное выражение или с использованием переменныx?
+                   
                     Expession = "";
+                    bool hasIdent = false;
                     if (MakeTokens.Tokens.Count == 1 || MakeTokens.Tokens.Count == 2)
                     {
                         if (MakeTokens.Tokens[0] == "IDENT" && MakeTokens.Tokens.Count == 1)
@@ -84,10 +85,13 @@ namespace ConsoleApplication1
                             {
                                 if (Ident.IdName == MakeTokens.Lexemes[0])
                                 {
+                                    hasIdent = true;
                                     if (Ident.Answer != null) Console.WriteLine(Ident.IdName + " answer is : " + Ident.Answer);
                                     else throw new Exception("Null exception");
                                 }
+
                             }
+                             if(!hasIdent) throw new Exception("There in NO ANY IDENTIFY LIKE:" + MakeTokens.Lexemes[0]);
 
                         }
                         else
@@ -98,16 +102,14 @@ namespace ConsoleApplication1
                                 {
                                     if (Ident.IdName == MakeTokens.Lexemes[0])
                                     {
+                                        hasIdent = true;
                                         if (Ident.Answer != null) Console.WriteLine(Ident.IdName + " answer is : " + Ident.Answer);
                                         else throw new Exception("Null exception");
                                     }
                                 }
-
-                            }
-                            else throw new Exception("There in NO ANY IDENTIFY LIKE:" + MakeTokens.Lexemes[0]);
+                                if(!hasIdent) throw new Exception("There in NO ANY IDENTIFY LIKE:" + MakeTokens.Lexemes[0]);
+                            }                        
                         }
-
-
                     }
                     else
                     {
