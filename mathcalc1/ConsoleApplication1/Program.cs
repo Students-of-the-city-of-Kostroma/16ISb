@@ -96,7 +96,7 @@ namespace ConsoleApplication1
                         }
                         else
                         {
-                            if (MakeTokens.Tokens.Count == 2 && MakeTokens.Tokens[0] == "IDENT" && MakeTokens.Tokens[0] == "=")
+                            if (MakeTokens.Tokens.Count == 2 && MakeTokens.Tokens[0] == "IDENT" && MakeTokens.Tokens[1] == "=")
                             {
                                 foreach (Identify Ident in ListOfIdentify)
                                 {
