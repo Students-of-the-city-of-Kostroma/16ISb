@@ -1,0 +1,5 @@
+C:\Users\student\Desktop\mailProject\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\mailProject\bin\Debug\ConsoleApplication1.exe
+C:\Users\student\Desktop\mailProject\bin\Debug\ConsoleApplication1.pdb
+C:\Users\student\Desktop\mailProject\obj\x86\Debug\ConsoleApplication1.exe
+C:\Users\student\Desktop\mailProject\obj\x86\Debug\ConsoleApplication1.pdb
